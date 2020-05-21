@@ -2,14 +2,23 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <script src="main.js"></script>
+    <title>PigLatin</title> 
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <h1>Hello World!</h1>
+   <body>
+    <h1>Pig Latin Converter</h1>
+    <img src="pig.png" alt="pig" class="center" width="300px">
     <hr/>
-    <div id="display-element"></div>
-    <button onclick="displayDate()">Click Me</button>
-    <hr/>
+    <div id="display-element">
+    <label for="piglatin"><h2>Translate word into Pig Latin.
+    </h2></label>
+    <br>
+    <br>
+    <input type="text" id="enterWord" name="enterWord" value=""><br>
+    <button onclick="pigLatin()" id="enterWord"><h2>Pig Latin</h2></button>
+    <div id="converterShow"></div>
+    </div>
+    <script src="main.js"></script>
   </body>
 </html>

@@ -1,0 +1,46 @@
+body{
+    background-color:black;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+
+  #display-element{
+      text-align: center;
+  }
+
+  h1, #converterShow{
+    text-align: center;
+    font-size: 50px;
+    font-family:'Fredoka One', cursive;
+    color: pink;
+  }
+h2 { 
+    text-align: center;
+    font-family:'Fredoka One', cursive;
+    color: pink;
+
+}
+  input{
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      
+      
+  }
+
+  button{
+      padding: 30px;
+      border-radius: 50%;
+      border: 2px solid #7056;
+      outline: none;
+      cursor: pointer;
+
+  }
+
+  button:hover{
+      background-color:grey;
+  }

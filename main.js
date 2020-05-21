@@ -1,21 +1,51 @@
-'use strict';
+// 'use strict';
 
-// brings in the assert module for unit testing
-const assert = require('assert');
-// brings in the readline module to access the command line
-const readline = require('readline');
-// use the readline module to print out to the command line
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+// // brings in the assert module for unit testing
+// const assert = require('assert');
+// // brings in the readline module to access the command line
+// const readline = require('readline');
+// // use the readline module to print out to the command line
+// const rl = readline.createInterface({
+//   input: process.stdin,
+//   output: process.stdout
+// });
 
 
-const pigLatin = (word) => {
-
+const pigLatin = () => {
+  let word = document.getElementById("enterWord").value;
+    if(word.match(/ /)) {
+      word = word.toLowerCase().trim();
+      let wordArr = word.split(' ');
+      let result = '';
+      for (let i = 0; i < wordArr.length; i++){
+        if (i > 0){
+          result += ' ';
+        }
+        result += translate(wordArr[i]);
+      }
+      document.getElementById("convertedShow").innerHTML = result;
+      return result;
+    }
+    return translate(word);
+  } 
+  const translate = (word) =>{
+    let vowels = ['a', 'e', 'i', 'o', 'u'];
+      let newWord= "";
+      if (vowels.indexOf(word[0]) > -1) {
+          newWord = word + "yay";
+          document.getElementById("converterShow").innerHTML = newWord;
+          return newWord;
+      } 
+      else {
+          let firstMatch = word.match(/[aeiou]/) || 0;
+          let vowel = word.indexOf(firstMatch[0]);
+          newWord = word.substring(vowel) + word.substring(0, vowel) + "ay";
+          document.getElementById("converterShow").innerHTML = newWord;
+          return newWord;
+      }
+    }
   // Your code here
 
-}
 
 // the first function called in the program to get an input from the user
 // to run the function use the command: node main.js
@@ -30,31 +60,31 @@ const getPrompt = () => {
 // Unit Tests
 // You use them run the command: npm test main.js
 // to close them ctrl + C
-if (typeof describe === 'function') {
+// if (typeof describe === 'function') {
 
-  describe('#pigLatin()', () => {
-    it('should translate a simple word', () => {
-      assert.equal(pigLatin('car'), 'arcay');
-      assert.equal(pigLatin('dog'), 'ogday');
-    });
-    it('should translate a complex word', () => {
-      assert.equal(pigLatin('create'), 'eatecray');
-      assert.equal(pigLatin('valley'), 'alleyvay');
-    });
-    it('should attach "yay" if word begins with vowel', () => {
-      assert.equal(pigLatin('egg'), 'eggyay');
-      assert.equal(pigLatin('emission'), 'emissionyay');
-    });
-    it('should lowercase and trim word before translation', () => {
-      assert.equal(pigLatin('HeLlO '), 'ellohay');
-      assert.equal(pigLatin(' RoCkEt'), 'ocketray');
-    });
-  });
-} else {
+//   describe('#pigLatin()', () => {
+//     it('should translate a simple word', () => {
+//       assert.equal(pigLatin('car'), 'arcay');
+//       assert.equal(pigLatin('dog'), 'ogday');
+//     });
+//     it('should translate a complex word', () => {
+//       assert.equal(pigLatin('create'), 'eatecray');
+//       assert.equal(pigLatin('valley'), 'alleyvay');
+//     });
+//     it('should attach "yay" if word begins with vowel', () => {
+//       assert.equal(pigLatin('egg'), 'eggyay');
+//       assert.equal(pigLatin('emission'), 'emissionyay');
+//     });
+//     it('should lowercase and trim word before translation', () => {
+//       assert.equal(pigLatin('HeLlO '), 'ellohay');
+//       assert.equal(pigLatin(' RoCkEt'), 'ocketray');
+//     });
+//   });
+// } else {
 
-  getPrompt();
+//   getPrompt();
 
-}
+// }
 
 
 
