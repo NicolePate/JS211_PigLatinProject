@@ -6,7 +6,6 @@ body{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
   }
 
   #display-element{
@@ -23,7 +22,6 @@ h2 {
     text-align: center;
     font-family:'Fredoka One', cursive;
     color: pink;
-
 }
   input{
       padding: 10px 20px;
